@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Admin Dashboard</h2>
+
+<h4>Pending Requests</h4>
+<table class="table">
+    <thead>
+        <tr><th>Name</th><th>Email</th><th>Reason</th><th>Actions</th></tr>
+    </thead>
+    <tbody>
+        {% for req in requests %}
+        <tr>
+            <td>{{ req.name }}</td>
+            <td>{{ req.email }}</td>
+            <td>{{ req.reason }}</td>
+            <td>
+                <a href="{{ url_for('approve_request', request_id=req.id) }}" class="btn btn-success btn-sm">Approve</a>
+                <a href="{{ url_for('decline_request', request_id=req.id) }}" class="btn btn-danger btn-sm">Decline</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<h4 class="mt-5">All Users</h4>
+<table class="table">
+    <thead>
+        <tr><th>Username</th><th>Email</th><th>Status</th></tr>
+    </thead>
+    <tbody>
+        {% for user in users %}
+        <tr>
+            <td>{{ user.username }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ 'Approved' if user.is_approved else 'Pending' }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
