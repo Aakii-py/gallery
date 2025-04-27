@@ -1,0 +1,47 @@
+/* Default Light Mode */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    --card-bg: #f8f9fa;
+}
+
+/* Dark Mode */
+[data-theme="dark"] {
+    --bg-color: #121212;
+    --text-color: #e0e0e0;
+    --card-bg: #1e1e1e;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.card {
+    background-color: var(--card-bg);
+}
+
+.navbar, .footer {
+    background-color: var(--card-bg) !important;
+}
+
+.btn-light {
+    color: #000;
+    background-color: #f8f9fa;
+    border-color: #f8f9fa;
+}
+
+.btn-light:hover {
+    background-color: #e2e6ea;
+    border-color: #dae0e5;
+}
+
+/* Centering cards nicely */
+.card-body {
+    text-align: center;
+}
+
+/* Icons sizing (optional if you use bootstrap-icons) */
+i.bi {
+    font-size: 2rem;
+}
